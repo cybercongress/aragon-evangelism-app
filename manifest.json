@@ -1,0 +1,18 @@
+{
+  "name": "cyber~Evangelism",
+  "author": "cyber~Congress",
+  "description": "Evangelism program for cyber~Foundation",
+  "details_url": "public/meta/details.md",
+  "source_url": "https://github.com/cybercongress/aragon-evangelism-app",
+  "icons": [
+    {
+      "src": "public/meta/icon.svg",
+      "sizes": "56x56"
+    }
+  ],
+  "screenshots": [
+    { "src": "public/meta/main-1.png" }
+  ],
+  "start_url": "/index.html",
+  "script": "/script.js"
+}
