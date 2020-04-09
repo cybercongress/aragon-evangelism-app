@@ -43,6 +43,9 @@ contract Evangelism is AragonApp {
         initialized();
     }
 
+    /**
+     * @notice My name is `_nickname` and I want to believe in Cyber
+     */
     function believe(
         string memory _cyberAddress,
         string memory _cosmosAddress,
@@ -85,20 +88,28 @@ contract Evangelism is AragonApp {
         );
     }
 
+    /**
+     * @notice Bless `_nickname`
+     */
     function bless(string memory _nickname)
         public
         auth(FOUNDER_ROLE)
     {
+        require(evangelistNicknameUniqIndex[_nickname] == true, "evangelist should exist");
         uint256 evangelistId = evangelistIdByNicknameIndex[_nickname];
         evangelists[evangelistId].status = EvangelistStatus.Blessed;
 
         emit Blessed(_nickname);
     }
 
+    /**
+     * @notice Unbless `_nickname`
+     */
     function unbless(string memory _nickname)
         public
         auth(FOUNDER_ROLE)
     {
+        require(evangelistNicknameUniqIndex[_nickname] == true, "evangelist should exist");
         uint256 evangelistId = evangelistIdByNicknameIndex[_nickname];
         address ethereumAddress = evangelists[evangelistId].ethereumAddress;
         evangelists[evangelistId].status = EvangelistStatus.Unblessed;

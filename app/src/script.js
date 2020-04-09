@@ -81,6 +81,15 @@ async function blessed(
   }
   const believer = state.believers[index];
 
+  if (index == -1) {
+    return {
+      ...state,
+      believers: [
+        ...state.believers
+      ]
+    }
+  }
+
   return {
     ...state,
     believers: [
@@ -103,6 +112,15 @@ async function unblessed(
     if (state.believers[i].nickname == nickname) index = i;
   }
   const believer = state.believers[index];
+
+  if (index == -1) {
+    return {
+      ...state,
+      believers: [
+        ...state.believers
+      ]
+    }
+  }
 
   return {
     ...state,
